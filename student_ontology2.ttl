@@ -1,0 +1,139 @@
+@prefix : <http://example.org/student-ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:Father a owl:Class ;
+    rdfs:comment "Specifically a father guardian." ;
+    rdfs:subClassOf :Guardian .
+
+:Mother a owl:Class ;
+    rdfs:comment "Specifically a mother guardian." ;
+    rdfs:subClassOf :Guardian .
+
+:OtherGuardian a owl:Class ;
+    rdfs:comment "Non-mother/father guardian." ;
+    rdfs:subClassOf :Guardian .
+
+:StudentOntology a owl:Ontology .
+
+:accesses a owl:ObjectProperty ;
+    rdfs:comment "Student accesses infrastructure." ;
+    rdfs:domain :Student ;
+    rdfs:range :Infrastructure .
+
+:affectsPerformance1 a owl:ObjectProperty ;
+    rdfs:comment "Study habits affect performance." ;
+    rdfs:domain :StudyHabits ;
+    rdfs:range :AcademicPerformance .
+
+:affectsPerformance2 a owl:ObjectProperty ;
+    rdfs:comment "Social behaviors affect performance." ;
+    rdfs:domain :SocialBehaviour ;
+    rdfs:range :AcademicPerformance .
+
+:affectsPerformance3 a owl:ObjectProperty ;
+    rdfs:comment "Wellbeing affects academic performance." ;
+    rdfs:domain :HealthAndWellBeing ;
+    rdfs:range :AcademicPerformance .
+
+:affectsStudyHabits a owl:ObjectProperty ;
+    rdfs:comment "Infrastructure facilitates or limits study habits." ;
+    rdfs:domain :Infrastructure ;
+    rdfs:range :StudyHabits .
+
+:attendsSchool a owl:ObjectProperty ;
+    rdfs:comment "Links a Student to the School they attend." ;
+    rdfs:domain :Student ;
+    rdfs:range :School .
+
+:belongsTo a owl:ObjectProperty ;
+    rdfs:comment "Student belongs to a Family unit." ;
+    rdfs:domain :Student ;
+    rdfs:range :Family .
+
+:hasFatherJob a owl:ObjectProperty ;
+    rdfs:comment "Links the student to the father's job category." ;
+    rdfs:domain :Student ;
+    rdfs:range :Job .
+
+:hasGuardian a owl:ObjectProperty ;
+    rdfs:comment "Indicates the student's primary guardian." ;
+    rdfs:domain :Student ;
+    rdfs:range :Guardian .
+
+:hasHealthProfile a owl:ObjectProperty ;
+    rdfs:comment "Student has a health and wellness profile." ;
+    rdfs:domain :Student ;
+    rdfs:range :HealthAndWellBeing .
+
+:hasMotherJob a owl:ObjectProperty ;
+    rdfs:comment "Links the student to the mother's job category." ;
+    rdfs:domain :Student ;
+    rdfs:range :Job .
+
+:hasOccupation a owl:ObjectProperty ;
+    rdfs:comment "Links Family to the parent's educational and job profile." ;
+    rdfs:domain :Family ;
+    rdfs:range :ParentsOccupation .
+
+:hasPerformance a owl:ObjectProperty ;
+    rdfs:comment "Student has a performance record." ;
+    rdfs:domain :Student ;
+    rdfs:range :AcademicPerformance .
+
+:hasReason a owl:ObjectProperty ;
+    rdfs:comment "Main reason for choosing the school." ;
+    rdfs:domain :Student ;
+    rdfs:range :Reason .
+
+:hasSocialBehaviour a owl:ObjectProperty ;
+    rdfs:comment "Student exhibits social behaviors." ;
+    rdfs:domain :Student ;
+    rdfs:range :SocialBehaviour .
+
+:hasStudyHabits a owl:ObjectProperty ;
+    rdfs:comment "Student has study habits." ;
+    rdfs:domain :Student ;
+    rdfs:range :StudyHabits .
+
+:influences a owl:ObjectProperty ;
+    rdfs:comment "Family environment influences performance." ;
+    rdfs:domain :Family ;
+    rdfs:range :AcademicPerformance .
+
+:ParentsOccupation a owl:Class ;
+    rdfs:comment "Educational and professional background of parents." .
+
+:Reason a owl:Class ;
+    rdfs:comment "Reason for choosing the school: home, reputation, course, other." .
+
+:School a owl:Class ;
+    rdfs:comment "Represents a school (GP or MS)." .
+
+:HealthAndWellBeing a owl:Class ;
+    rdfs:comment "Student's physical/mental well-being and habits." .
+
+:Infrastructure a owl:Class ;
+    rdfs:comment "Access to school and technological resources." .
+
+:Job a owl:Class ;
+    rdfs:comment "Possible job categories: teacher, health, services, at_home, other." .
+
+:SocialBehaviour a owl:Class ;
+    rdfs:comment "Social and emotional student data." .
+
+:Family a owl:Class ;
+    rdfs:comment "The student's family group." .
+
+:StudyHabits a owl:Class ;
+    rdfs:comment "Study behavior and support resources." .
+
+:Guardian a owl:Class ;
+    rdfs:comment "Represents any legal guardian (mother, father or other)." .
+
+:AcademicPerformance a owl:Class ;
+    rdfs:comment "Grades and failures of the student." .
+
+:Student a owl:Class ;
+    rdfs:comment "Represents a student in the dataset." .
+
