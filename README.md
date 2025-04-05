@@ -5,7 +5,6 @@
 **Autor:** Daniela Anaí Jiménez Gómez  
 **Tutor:** Ricardo Flores Moyano, Ph.D.  
 **Carrera:** Ingeniería en Ciencias de la Computación  
-**Universidad:** Universidad San Francisco de Quito (USFQ)  
 **Año:** 2025  
 
 ---
