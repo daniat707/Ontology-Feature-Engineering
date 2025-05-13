@@ -3,25 +3,9 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
-  <rdf:Description rdf:about="http://example.org/student-ontology#Job">
+  <rdf:Description rdf:about="http://example.org/student-ontology#School">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Possible job categories: teacher, health, services, at_home, other.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasSocialBehaviour">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Student exhibits social behaviors.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#SocialBehaviour"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Infrastructure">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Access to school and technological resources.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#belongsTo">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Student belongs to a Family unit.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#Family"/>
+    <rdfs:comment>Represents a school (GP or MS).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/student-ontology#attendsSchool">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -29,10 +13,11 @@
     <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
     <rdfs:range rdf:resource="http://example.org/student-ontology#School"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Father">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Specifically a father guardian.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
+  <rdf:Description rdf:about="http://example.org/student-ontology#belongsTo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Student belongs to a Family unit.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#Family"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/student-ontology#hasStudyHabits">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -40,11 +25,118 @@
     <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
     <rdfs:range rdf:resource="http://example.org/student-ontology#StudyHabits"/>
   </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasReason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Main reason for choosing the school.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#Reason"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Family">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>The student's family group.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#StudentOntology">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasMotherJob">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Links the student to the mother's job category.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#Job"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Mother">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Specifically a mother guardian.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#AcademicPerformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Grades and failures of the student.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#affectsStudyHabits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Infrastructure facilitates or limits study habits.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Infrastructure"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#StudyHabits"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasHealthProfile">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Student has a health and wellness profile.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#HealthAndWellBeing"/>
+  </rdf:Description>
   <rdf:Description rdf:about="http://example.org/student-ontology#hasOccupation">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:comment>Links Family to the parent's educational and job profile.</rdfs:comment>
     <rdfs:domain rdf:resource="http://example.org/student-ontology#Family"/>
     <rdfs:range rdf:resource="http://example.org/student-ontology#ParentsOccupation"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#HealthAndWellBeing">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Student's physical/mental well-being and habits.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#accesses">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Student accesses infrastructure.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#Infrastructure"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasPerformance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Student has a performance record.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasGuardian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Indicates the student's primary guardian.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#Guardian"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#SocialBehaviour">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Social and emotional student data.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Student">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Represents a student in the dataset.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Reason">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Reason for choosing the school: home, reputation, course, other.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#affectsPerformance3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Wellbeing affects academic performance.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#HealthAndWellBeing"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Guardian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Represents any legal guardian (mother, father or other).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#OtherGuardian">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Non-mother/father guardian.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#Infrastructure">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Access to school and technological resources.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#StudyHabits">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Study behavior and support resources.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#affectsPerformance1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:comment>Study habits affect performance.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://example.org/student-ontology#StudyHabits"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/student-ontology#ParentsOccupation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>Educational and professional background of parents.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/student-ontology#influences">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -58,49 +150,15 @@
     <rdfs:domain rdf:resource="http://example.org/student-ontology#SocialBehaviour"/>
     <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Family">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>The student's family group.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#OtherGuardian">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Non-mother/father guardian.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasReason">
+  <rdf:Description rdf:about="http://example.org/student-ontology#hasSocialBehaviour">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Main reason for choosing the school.</rdfs:comment>
+    <rdfs:comment>Student exhibits social behaviors.</rdfs:comment>
     <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#Reason"/>
+    <rdfs:range rdf:resource="http://example.org/student-ontology#SocialBehaviour"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Mother">
+  <rdf:Description rdf:about="http://example.org/student-ontology#Job">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Specifically a mother guardian.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#AcademicPerformance">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Grades and failures of the student.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasHealthProfile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Student has a health and wellness profile.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#HealthAndWellBeing"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Reason">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Reason for choosing the school: home, reputation, course, other.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#StudyHabits">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Study behavior and support resources.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasGuardian">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Indicates the student's primary guardian.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#Guardian"/>
+    <rdfs:comment>Possible job categories: teacher, health, services, at_home, other.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://example.org/student-ontology#hasFatherJob">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
@@ -108,67 +166,9 @@
     <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
     <rdfs:range rdf:resource="http://example.org/student-ontology#Job"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasMotherJob">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Links the student to the mother's job category.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#Job"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#accesses">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Student accesses infrastructure.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#Infrastructure"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#affectsPerformance3">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Wellbeing affects academic performance.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#HealthAndWellBeing"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#HealthAndWellBeing">
+  <rdf:Description rdf:about="http://example.org/student-ontology#Father">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Student's physical/mental well-being and habits.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Student">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Represents a student in the dataset.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#ParentsOccupation">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Educational and professional background of parents.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#Guardian">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Represents any legal guardian (mother, father or other).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#hasPerformance">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Student has a performance record.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Student"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#affectsStudyHabits">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Infrastructure facilitates or limits study habits.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#Infrastructure"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#StudyHabits"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#affectsPerformance1">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:comment>Study habits affect performance.</rdfs:comment>
-    <rdfs:domain rdf:resource="http://example.org/student-ontology#StudyHabits"/>
-    <rdfs:range rdf:resource="http://example.org/student-ontology#AcademicPerformance"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#SocialBehaviour">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Social and emotional student data.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#StudentOntology">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://example.org/student-ontology#School">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:comment>Represents a school (GP or MS).</rdfs:comment>
+    <rdfs:comment>Specifically a father guardian.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/student-ontology#Guardian"/>
   </rdf:Description>
 </rdf:RDF>
